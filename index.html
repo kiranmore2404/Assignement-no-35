@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: fit-content;
+            margin: 50px auto;
+            position: relative;
+        }
+        .img1{
+            height: 400px;
+            width: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .change{
+            height: 80px;
+            position: absolute;
+            top: 40%;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .ico-prev{
+            left: 0;
+            
+        }
+        .ico-prev:hover{
+            transform: scale(0.8) translateX(-20px);
+
+        }
+
+        .ico-next{
+            right: 0;
+           
+        }
+        .ico-next:hover{
+            transform: scale(0.8) translateX(20px);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="./imges/pubg1.avif" alt="" class="img1" id="pubgc1">
+        <img src="./imges/arrowleft.png" alt="" class="change ico-prev" onclick="pre()">
+        <img src="/imges/arroeright.png" alt="" class="change ico-next" onclick="next()" >
+
+    </div>
+    <script>
+        const allimg = ['./imges/pubg2.avif','./imges/pubg3.jpg','./imges/pubg4.avif','./imges/pubg5.avif','./imges/pubg6.avif','./imges/pubg7.avif'];
+        let index = 0;
+        
+        let img = document.getElementById('pubgc1');
+
+        function next(){
+           if(index < allimg.length-1){
+           index++;
+            
+        }
+        else{
+            index = 0;
+        }
+    
+        img.src = allimg[index];
+
+    }
+    function pre(){
+        if(index>0){
+            index--;
+    
+            
+        }
+        else{
+            index = allimg.length-1;
+        }
+    
+        img.src = allimg[index];
+
+    } 
+    setInterval(next,2000);
+    </script>
+</body>
+</html>
